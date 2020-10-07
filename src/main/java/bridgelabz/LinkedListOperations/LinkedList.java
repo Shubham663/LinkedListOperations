@@ -213,4 +213,23 @@ public class LinkedList{
 		}
 		return false;
 	}
+	
+	/**
+	 * @param toPut,the value to be put in linked list
+	 * @param present, the value(already present in list) after which the data(toPut) is to be inserted
+	 */
+	public <T> void addNodeAfter(T toPut,T present) {
+		Node t = head;
+		while( t != null) {
+			if(t.data == present) {
+				Node n = new Node(toPut);
+				n.next = t.next;
+				t.next = n;
+				size++;
+				return;
+			}
+			t = t.next;
+		}
+		System.out.println("No node with data: " + present + " exists.");
+	}
 }

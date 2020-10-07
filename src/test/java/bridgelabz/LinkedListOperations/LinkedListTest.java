@@ -192,4 +192,28 @@ public class LinkedListTest
         assertEquals(3, linkedList.getSize());
         assertFalse( linkedList.search(40));
     }
+    
+    @Test
+    public void sortedListCreationTest_Correct(){
+    	SortedLinkedList linkedList = new SortedLinkedList();
+        linkedList.addSortedNode(56);
+        linkedList.addSortedNode(70);
+        linkedList.addSortedNode(30);
+        linkedList.addSortedNode(40);
+    	linkedList.popSpecific(40);
+        assertEquals(3, linkedList.getSize());
+        assertEquals(30, linkedList.returnFirst());
+    }
+    
+    @Test
+    public void sortedListCreationTest_InCorrect(){
+    	SortedLinkedList linkedList = new SortedLinkedList();
+        linkedList.addSortedNode(56);
+        linkedList.addSortedNode(70);
+        linkedList.addSortedNode(30);
+        linkedList.addSortedNode(40);
+    	linkedList.popSpecific(40);
+        assertEquals(3, linkedList.getSize());
+        assertNotEquals(56,linkedList.returnFirst());
+    }
 }

@@ -48,7 +48,7 @@ public class LinkedList{
 	 *
 	 * @param <T>, generic data type that the linked list stores
 	 */
-	static class Node<T>{
+	static class Node<T extends Comparable<T>>{
 		private T data;
 		private Node next;
 		
@@ -91,7 +91,7 @@ public class LinkedList{
 	 * @param <T>, the generic type that linkedlist stores
 	 * @param data, the data to be stored
 	 */
-	public <T> void addNodeAtFirst(T data) {
+	public <T extends Comparable<T>> void addNodeAtFirst(T data) {
 		Node n = new Node(data);
 		n.next = head;
 		head = n;
@@ -102,7 +102,7 @@ public class LinkedList{
 	 * @param <T>, generic type that linkedlist stores
 	 * @param data, the data tobe stored
 	 */
-	public <T> void addNodeAtLast(T data) {
+	public <T extends Comparable<T>> void addNodeAtLast(T data) {
 		Node n = new Node(data);
 		Node t = head;
 		if(t == null){
@@ -121,7 +121,7 @@ public class LinkedList{
 	 * @param index, the index at which node is to be inserted
 	 * inserts a node at a particular index
 	 */
-	public <T> void addNodeAtIndex(T data,int index) {
+	public <T extends Comparable<T>> void addNodeAtIndex(T data,int index) {
 		Node n = new Node(data);
 		Node t = head;
 		if(index == 0) {
@@ -207,7 +207,7 @@ public class LinkedList{
 		if(head==null) {
 			System.out.println("The list is empty, no elements to remove");
 		}
-		else if(head.data == val) {
+		else if(head.data.compareTo(val)==0) {
 			head = head.next;
 			size--;
 		}
@@ -217,7 +217,7 @@ public class LinkedList{
 				prev = t;
 				t = t.next;
 			}
-			if(t.data == val) {
+			if(t.data.compareTo(val) == 0) {
 				prev.next = t.next;
 				size--;
 			}
@@ -233,7 +233,7 @@ public class LinkedList{
 	public <T> boolean search(T data) {
 		Node n = head;
 		while( n != null) {
-			if(n.data == data)
+			if(n.data.compareTo(data) == 0)
 				return true;
 			n = n.next;
 		}
@@ -244,10 +244,10 @@ public class LinkedList{
 	 * @param toPut,the value to be put in linked list
 	 * @param present, the value(already present in list) after which the data(toPut) is to be inserted
 	 */
-	public <T> void addNodeAfter(T toPut,T present) {
+	public <T  extends Comparable<T>> void addNodeAfter(T toPut,T present) {
 		Node t = head;
 		while( t != null) {
-			if(t.data == present) {
+			if(t.data.compareTo(present) == 0) {
 				Node n = new Node(toPut);
 				n.next = t.next;
 				t.next = n;

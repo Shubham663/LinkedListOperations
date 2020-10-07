@@ -1,5 +1,7 @@
 package bridgelabz.LinkedListOperations;
 
+import java.util.Scanner;
+
 /**
  * @author Shubham, class defining data structure
  *
@@ -111,6 +113,29 @@ public class LinkedList{
 				t = t.next;
 			t.next = n;
 		}
+		size++;
+	}
+	
+	public <T> void addNodeAtIndex(T data) {
+		Node n = new Node(data);
+		Node t = head;
+		System.out.println("Enter the index in [0," + (size) +"] at which you want to add element");
+		Scanner sc = new Scanner(System.in);
+		int val = sc .nextInt();
+		sc.nextLine();
+		if(val == 0) {
+			addNodeAtFirst(data);
+			return;
+		}
+		for(int i=0; i < val-1  && t!=null; i++)
+			t = t.next;
+		if(t == null)
+		{
+			System.out.println("the list is not that long, value within the specified range not given");
+			return;
+		}
+		n.next = t.next;
+		t.next = n;
 		size++;
 	}
 	

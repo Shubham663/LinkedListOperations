@@ -63,8 +63,8 @@ public class LinkedListTest
     public void addElementsAtIndex_Correct(){
     	linkedList.addNodeAtLast(56);
     	linkedList.addNodeAtLast(70);
-//    	for adding element in between please specify index as 1 in runtime
-    	linkedList.addNodeAtIndex(30);
+//    	for adding element in between index taken as 1
+    	linkedList.addNodeAtIndex(30,1);
         assertEquals(3, linkedList.getSize());
         assertEquals(56, linkedList.returnFirst());
     }
@@ -73,9 +73,30 @@ public class LinkedListTest
     public void addElementsAtIndex_InCorrect(){
     	linkedList.addNodeAtLast(56);
     	linkedList.addNodeAtLast(70);
-//    	for adding element in at front please specify index as 0 in runtime
-    	linkedList.addNodeAtIndex(30);
+//    	for adding element in between index taken as 1
+    	linkedList.addNodeAtIndex(30,1);
         assertEquals(3, linkedList.getSize());
+        assertNotEquals(30, linkedList.returnFirst());
+    }
+    
+    @Test
+    public void deleteFirstNode_Correct(){
+    	linkedList.addNodeAtLast(56);
+    	linkedList.addNodeAtLast(70);
+//    	for adding element in between index taken as 1
+    	linkedList.addNodeAtIndex(30,1);
+    	linkedList.pop();
+        assertEquals(2, linkedList.getSize());
+        assertEquals(30, linkedList.returnFirst());
+    }
+    
+    @Test
+    public void deleteFirstNode_InCorrect(){
+    	linkedList.addNodeAtLast(56);
+    	linkedList.addNodeAtLast(70);
+//    	for adding element in between index taken as 1
+    	linkedList.addNodeAtIndex(30,1);
+    	linkedList.pop();
         assertNotEquals(56, linkedList.returnFirst());
     }
 }

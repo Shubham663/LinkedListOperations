@@ -11,12 +11,11 @@ public class MainClass
     public static void main( String[] args )
     {
         System.out.println( "Welcome to Linked List Operations!" );
-        LinkedList linkedList = new LinkedList();
-        linkedList.addNodeAtLast(56);
-        linkedList.addNodeAtLast(70);
-//    	for adding element in between index taken as 1
-        linkedList.addNodeAtIndex(30, 1);
-        linkedList.addNodeAfter(40, 30);
+        SortedLinkedList linkedList = new SortedLinkedList();
+        linkedList.addSortedNode(56);
+        linkedList.addSortedNode(70);
+        linkedList.addSortedNode(30);
+        linkedList.addSortedNode(40);
         linkedList.printList();
         linkedList.popSpecific(40);
         System.out.print("After deleting data 40 ");

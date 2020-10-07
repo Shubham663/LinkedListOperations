@@ -1,18 +1,83 @@
 package bridgelabz.LinkedListOperations;
 
+/**
+ * @author Shubham, class defining data structure
+ *
+ */
 public class LinkedList{
-	int size;
-	Node head;
+	private int size;
+	private Node head;
 	
 	public LinkedList() {
 		size = 0;
 		head = null;
 	}
 	
+	/**
+	 * @return the size
+	 */
+	public int getSize() {
+		return size;
+	}
+
+	/**
+	 * @param size the size to set
+	 */
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	/**
+	 * @return the head
+	 */
+	public Node getHead() {
+		return head;
+	}
+
+	/**
+	 * @param head the head to set
+	 */
+	public void setHead(Node head) {
+		this.head = head;
+	}
+
+	/**
+	 * @author Shubham, class defining an element of Linked List
+	 *
+	 * @param <T>, generic data type that the linked list stores
+	 */
 	static class Node<T>{
-		T data;
-		Node next;
+		private T data;
+		private Node next;
 		
+		/**
+		 * @return the data
+		 */
+		public T getData() {
+			return data;
+		}
+
+		/**
+		 * @param data the data to set
+		 */
+		public void setData(T data) {
+			this.data = data;
+		}
+
+		/**
+		 * @return the next
+		 */
+		public Node getNext() {
+			return next;
+		}
+
+		/**
+		 * @param next the next to set
+		 */
+		public void setNext(Node next) {
+			this.next = next;
+		}
+
 		public Node(T data) {
 			super();
 			this.data = data;
@@ -20,6 +85,10 @@ public class LinkedList{
 		}
 	}
 	
+	/**
+	 * @param <T>, the generic type that linkedlist stores
+	 * @param data, the data to be stored
+	 */
 	public <T> void addNodeAtFirst(T data) {
 		Node n = new Node(data);
 		n.next = head;
@@ -27,6 +96,27 @@ public class LinkedList{
 		size++;
 	}
 	
+	/**
+	 * @param <T>, generic type that linkedlist stores
+	 * @param data, the data tobe stored
+	 */
+	public <T> void addNodeAtLast(T data) {
+		Node n = new Node(data);
+		Node t = head;
+		if(t == null){
+			head = n;
+		}
+		else {
+			while (t.next != null)
+				t = t.next;
+			t.next = n;
+		}
+		size++;
+	}
+	
+	/**
+	 * prints the linked list
+	 */
 	public <T> void printList() {
 		Node t = head;
 		System.out.print("HEAD");
@@ -37,6 +127,9 @@ public class LinkedList{
 		System.out.print(" -> null\n");
 	}
 	
+	/**
+	 * @return returns the first element of the linked list
+	 */
 	public <T> T returnFirst() {
 		if(head == null) {
 			System.out.println("No elements present");

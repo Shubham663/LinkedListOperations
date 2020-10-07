@@ -58,4 +58,24 @@ public class LinkedListTest
         assertEquals(3, linkedList.getSize());
         assertNotEquals(70, linkedList.returnFirst());
     }
+    
+    @Test
+    public void addElementsAtIndex_Correct(){
+    	linkedList.addNodeAtLast(56);
+    	linkedList.addNodeAtLast(70);
+//    	for adding element in between please specify index as 1 in runtime
+    	linkedList.addNodeAtIndex(30);
+        assertEquals(3, linkedList.getSize());
+        assertEquals(56, linkedList.returnFirst());
+    }
+    
+    @Test
+    public void addElementsAtIndex_InCorrect(){
+    	linkedList.addNodeAtLast(56);
+    	linkedList.addNodeAtLast(70);
+//    	for adding element in at front please specify index as 0 in runtime
+    	linkedList.addNodeAtIndex(30);
+        assertEquals(3, linkedList.getSize());
+        assertNotEquals(56, linkedList.returnFirst());
+    }
 }

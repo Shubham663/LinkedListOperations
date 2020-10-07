@@ -24,5 +24,6 @@ public class MainClass
         linkedList.popLast();
         System.out.print("After deleting from last ");
         linkedList.printList();
+        System.out.println("Element 70 present inside List: " + linkedList.search(70));
     }
 }

@@ -24,7 +24,7 @@ public class LinkedListTest
 	
 	
     @Test
-    public void addElementsAtFirst_Correct(){
+    public void addElementsAtFirstTest_Correct(){
     	linkedList.addNodeAtFirst(70);
     	linkedList.addNodeAtFirst(30);
     	linkedList.addNodeAtFirst(56);
@@ -33,7 +33,7 @@ public class LinkedListTest
     }
     
     @Test
-    public void addElementsAtFirst_InCorrect(){
+    public void addElementsAtFirstTest_InCorrect(){
     	linkedList.addNodeAtFirst(70);
     	linkedList.addNodeAtFirst(30);
     	linkedList.addNodeAtFirst(56);
@@ -42,7 +42,7 @@ public class LinkedListTest
     }
     
     @Test
-    public void addElementsAtLast_Correct(){
+    public void addElementsAtLastTest_Correct(){
     	linkedList.addNodeAtLast(56);
     	linkedList.addNodeAtLast(30);
     	linkedList.addNodeAtLast(70);
@@ -51,7 +51,7 @@ public class LinkedListTest
     }
     
     @Test
-    public void addElementsAtLast_InCorrect(){
+    public void addElementsAtLastTest_InCorrect(){
     	linkedList.addNodeAtLast(56);
     	linkedList.addNodeAtLast(30);
     	linkedList.addNodeAtLast(70);
@@ -60,7 +60,7 @@ public class LinkedListTest
     }
     
     @Test
-    public void addElementsAtIndex_Correct(){
+    public void addElementsAtIndexTest_Correct(){
     	linkedList.addNodeAtLast(56);
     	linkedList.addNodeAtLast(70);
 //    	for adding element in between index taken as 1
@@ -70,7 +70,7 @@ public class LinkedListTest
     }
     
     @Test
-    public void addElementsAtIndex_InCorrect(){
+    public void addElementsAtIndexTest_InCorrect(){
     	linkedList.addNodeAtLast(56);
     	linkedList.addNodeAtLast(70);
 //    	for adding element in between index taken as 1
@@ -80,7 +80,7 @@ public class LinkedListTest
     }
     
     @Test
-    public void deleteFirstNode_Correct(){
+    public void deleteFirstNodeTest_Correct(){
     	linkedList.addNodeAtLast(56);
     	linkedList.addNodeAtLast(70);
 //    	for adding element in between index taken as 1
@@ -91,12 +91,34 @@ public class LinkedListTest
     }
     
     @Test
-    public void deleteFirstNode_InCorrect(){
+    public void deleteFirstNodeTest_InCorrect(){
     	linkedList.addNodeAtLast(56);
     	linkedList.addNodeAtLast(70);
 //    	for adding element in between index taken as 1
     	linkedList.addNodeAtIndex(30,1);
     	linkedList.pop();
         assertNotEquals(56, linkedList.returnFirst());
+    }
+    
+    @Test
+    public void deleteLastNodeTest_Correct(){
+    	linkedList.addNodeAtLast(56);
+    	linkedList.addNodeAtLast(70);
+//    	for adding element in between index taken as 1
+    	linkedList.addNodeAtIndex(30,1);
+    	linkedList.popLast();
+        assertEquals(2, linkedList.getSize());
+        assertEquals(56, linkedList.returnFirst());
+    }
+    
+    @Test
+    public void deleteLastNodeTest_InCorrect(){
+    	linkedList.addNodeAtLast(56);
+    	linkedList.addNodeAtLast(70);
+//    	for adding element in between index taken as 1
+    	linkedList.addNodeAtIndex(30,1);
+    	linkedList.popLast();
+        assertEquals(2, linkedList.getSize());
+        assertNotEquals(30, linkedList.returnFirst());
     }
 }

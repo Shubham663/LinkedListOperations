@@ -10,9 +10,9 @@ public class MainClass
     {
         System.out.println( "Welcome to Linked List Operations!" );
         LinkedList linkedList = new LinkedList();
-        linkedList.addNodeAtFirst(70);
-        linkedList.addNodeAtFirst(30);
-        linkedList.addNodeAtFirst(56);
+        linkedList.addNodeAtLast(56);
+        linkedList.addNodeAtLast(30);
+        linkedList.addNodeAtLast(70);
         linkedList.printList();
     }
 }

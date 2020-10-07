@@ -18,8 +18,8 @@ public class MainClass
         linkedList.addNodeAtIndex(30, 1);
         linkedList.addNodeAfter(40, 30);
         linkedList.printList();
-        linkedList.popLast();
-        System.out.print("After deleting from last ");
+        linkedList.popSpecific(40);
+        System.out.print("After deleting data 40 ");
         linkedList.printList();
     }
 }

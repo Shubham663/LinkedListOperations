@@ -201,6 +201,32 @@ public class LinkedList{
 	}
 	
 	/**
+	 * @param val,the data to be deleted from linked list
+	 */
+	public <T> void popSpecific(T val) {
+		if(head==null) {
+			System.out.println("The list is empty, no elements to remove");
+		}
+		else if(head.data == val) {
+			head = head.next;
+			size--;
+		}
+		else {
+			Node t = head.next, prev = head;
+			while(t != null && t.data != val) {
+				prev = t;
+				t = t.next;
+			}
+			if(t.data == val) {
+				prev.next = t.next;
+				size--;
+			}
+			else
+				System.out.println("The data is not present inside list");
+		}
+	}
+	
+	/**
 	 * @param data,the data which is searched for inside linked list
 	 * @return, returns true if data present in linked list, else returns false
 	 */

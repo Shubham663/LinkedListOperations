@@ -168,4 +168,28 @@ public class LinkedListTest
         assertEquals(3, linkedList.getSize());
         assertNotEquals(40, linkedList.returnFirst());
     }
+    
+    @Test
+    public void deleteSpecificNodeTest_InCorrect(){
+    	linkedList.addNodeAtLast(56);
+    	linkedList.addNodeAtLast(70);
+//    	for adding element in between index taken as 1
+    	linkedList.addNodeAtIndex(30,1);
+    	linkedList.addNodeAfter(40, 30);
+    	linkedList.popSpecific(30);
+        assertEquals(3, linkedList.getSize());
+        assertTrue( linkedList.search(40));
+    }
+    
+    @Test
+    public void deleteSpecificNodeTest_Correct(){
+    	linkedList.addNodeAtLast(56);
+    	linkedList.addNodeAtLast(70);
+//    	for adding element in between index taken as 1
+    	linkedList.addNodeAtIndex(30,1);
+    	linkedList.addNodeAfter(40, 30);
+    	linkedList.popSpecific(40);
+        assertEquals(3, linkedList.getSize());
+        assertFalse( linkedList.search(40));
+    }
 }
